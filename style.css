@@ -3,9 +3,31 @@
     margin: auto;
 }
 
+.pOne {
+    color: blue;
+}
+
+.pTwo {
+    color: red;
+}
+
+.pOneWin {
+    background: blue;
+}
+
+.pTwoWin {
+    background: red;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
 
 td {
     border: 1px solid black;
     height: 150px;
     width: 150px;
+    text-align: center;
+    font-size: 120px;
 }
