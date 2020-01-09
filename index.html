@@ -22,33 +22,45 @@
 
         <p class="error"></p>
 
-        <p class="pOneDropDown">
-            Player 1 choose your house: 
-            <select name="pOneHouse" class="pOneHouse">
-                <option value="gryffindor">Gryffindor</option>
-                <option value="hufflepuff">Hufflepuff</option>
-                <option value="ravenclaw">Ravenclaw</option>  
-                <option value="slytherin">Slytherin</option>   
-            </select>
+        <p class="dropdowns">
+            <span class="pOneDropDown">
+                Player 1 choose your house: 
+                <select name="pOneHouse" class="pOneHouse" onchange="playerOneHouseImage()">
+                    <option value="placeholder">Select House</option>
+                    <option value="gryffindor">Gryffindor</option>
+                    <option value="hufflepuff">Hufflepuff</option>
+                    <option value="ravenclaw">Ravenclaw</option>  
+                    <option value="slytherin">Slytherin</option>   
+                </select>
+            </span>
+            
+            <span class="pTwoDropDown">
+                Player 2 choose your house: 
+                <select name="pTwoHouse" class="pTwoHouse" onchange="playerTwoHouseImage()">
+                    <option value="placeholder">Select House</option>
+                    <option value="gryffindor">Gryffindor</option>
+                    <option value="hufflepuff">Hufflepuff</option>
+                    <option value="ravenclaw">Ravenclaw</option>  
+                    <option value="slytherin">Slytherin</option>   
+                </select>
+            </span>
         </p>
-        
-        <p class="pTwoDropDown">
-            Player 2 choose your house: 
-            <select name="pTwoHouse" class="pTwoHouse">
-                <option value="gryffindor">Gryffindor</option>
-                <option value="hufflepuff">Hufflepuff</option>
-                <option value="ravenclaw">Ravenclaw</option>  
-                <option value="slytherin">Slytherin</option>   
-            </select>
+            
+        <p class="crests">
+            <img src="" alt="PlayerOneCrest" class="pOneCrest hide">
+            <img src="" alt="PlayerTwoCrest" class="pTwoCrest hide">
         </p>
-
-        <button class="start">Start Game</button>
+       
+        <div class="center">
+            <button class="start">Start Game</button>
+        </div>
 
         <h2 class="noWinner center"></h2>
         <h2 class="playerHeading hide"></h2>
     
         <section class="board">
             <div>
+                <img src="" alt="PlayerOneCrest" class="pOneCrestScore">
                 <p class="pOneHouseSelection">Player 1 Score</p>
                 <p class="pOneScore">0</p>
             </div>
@@ -70,6 +82,7 @@
                </tr>
            </table> 
            <div>
+               <img src="" alt="PlayerTwoCrest" class="pTwoCrestScore">
                <p class="pTwoHouseSelection">Player 2 Score</p>
                <p class="pTwoScore">0</p>
             </div>

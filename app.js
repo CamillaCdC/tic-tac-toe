@@ -1,6 +1,8 @@
 var allSquares = document.querySelectorAll(".square");
 var playerHeading = document.querySelector(".playerHeading");
 var board = document.querySelector(".board");
+var pOneSelect = document.querySelector(".pOneHouse");
+var pTwoSelect = document.querySelector(".pTwoHouse");
 var pOneHouse;
 var pTwoHouse;
 var pOne = [];
@@ -29,13 +31,29 @@ var pTwoHouseSelection = document.querySelector(".pTwoHouseSelection");
 var musicPlaying = false;
 var musicBtn = document.querySelector(".musicBtn");
 
+// set player house selection and display crests
+var playerOneHouseImage = function () {
+    pOneHouse = pOneSelect.value;
+    if (pOneHouse === "placeholder") {
+        document.querySelector(".pOneCrest").classList.add("hide");
+    } else {
+        document.querySelector(".pOneCrest").src = `images/${pOneHouse}.png`;
+        document.querySelector(".pOneCrest").classList.remove("hide");
+
+    }
+}
+var playerTwoHouseImage = function () {
+    pTwoHouse = pTwoSelect.value;
+    if (pTwoHouse === "placeholder") {
+        document.querySelector(".pOneCrest").classList.add("hide");
+    } else {
+        document.querySelector(".pTwoCrest").src = `images/${pTwoHouse}.png`;
+        document.querySelector(".pTwoCrest").classList.remove("hide");
+    }
+}
+
 // Start function
 var start = () => {
-    // get house name from drop down selection
-    var pOneSelect = document.querySelector(".pOneHouse");
-    pOneHouse = pOneSelect.options[pOneSelect.selectedIndex].value;
-    var pTwoSelect = document.querySelector(".pTwoHouse");
-    pTwoHouse = pTwoSelect.options[pTwoSelect.selectedIndex].value;
     // check that both house names are not the same
     if (pOneHouse === pTwoHouse) {
         error.classList.remove("hide");
@@ -43,10 +61,17 @@ var start = () => {
         error.style.color = "red";
     // If they're not the same, hide drop downs and player scores's appear
     } else {
+        // hide crests from selection
+        document.querySelector(".pOneCrest").classList.add("hide");
+        document.querySelector(".pTwoCrest").classList.add("hide");
+        document.querySelector(".pOneCrestScore").src = `images/${pOneHouse}.png`;
+        document.querySelector(".pTwoCrestScore").src = `images/${pTwoHouse}.png`;
         playTheme();
         error.classList.add("hide");
         pOneDropDown.classList.add("hide");
+        pOneSelect.value = "placeholder";
         pTwoDropDown.classList.add("hide");
+        pTwoSelect.value = "placeholder";
         pOneHouseSelection.textContent = `${pOneHouse}'s Score`;
         pOneHouseSelection.classList.add(pOneHouse);
         pTwoHouseSelection.textContent = `${pTwoHouse}'s Score`;

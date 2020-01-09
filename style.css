@@ -45,6 +45,35 @@ hr {
     cursor: pointer;
 }
 
+.dropdowns {
+    display: flex;
+    justify-content: center;
+}
+
+.pOneDropDown, .pTwoDropDown {
+    flex-grow: 1;
+    margin-left: 15px;
+}
+
+.crests {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pOneCrest, .pTwoCrest {
+    margin-left: auto;
+    margin-right: 75px;
+
+}
+
+.pOneCrestScore, .pTwoCrestScore {
+    margin: auto;
+}
+
+.right {
+    text-align: right;
+}
+
 p {
     font-size: large;
 }
@@ -52,7 +81,6 @@ p {
 .playerHeading {
     text-align: center;
     text-transform: capitalize;
-
 }
 
 .hide {
@@ -148,6 +176,7 @@ img {
     border: 3px solid black;
     transition-duration: 0.3s;
     font-family: HarryPotter2, Arial, Helvetica, sans-serif;
+    margin-top: 15px;
 }
 
 .reset {
