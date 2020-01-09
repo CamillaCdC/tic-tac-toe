@@ -241,7 +241,7 @@ var resetGame = () => {
         playerHeading.textContent = `${pOneHouse}'s Turn...`;
         playerHeading.classList.add(pOneHouse);
         playerHeading.classList.remove(pTwoHouse);
-    }
+    } 
     // add back in event listener for squares 
     allSquares.forEach(square => {
         square.addEventListener("click", click)
@@ -275,7 +275,6 @@ var startNewGame = () => {
 
 // Event listeners for footer
 document.querySelector(".resetScore").addEventListener("click", resetScore);
-document.querySelector(".resetGameFooter").addEventListener("click", resetGame);
 document.querySelector(".startNewGame").addEventListener("click", startNewGame);
 
 // Music
