@@ -34,6 +34,10 @@ h1 {
     flex-grow: 1;
 }
 
+h2 {
+    text-align: center;
+}
+
 hr {
 	border: 1px solid black;
 }
@@ -89,7 +93,6 @@ select {
 }
 
 .playerHeading {
-    text-align: center;
     text-transform: capitalize;
 }
 
