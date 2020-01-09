@@ -1,7 +1,6 @@
 body {
     background-image: url("images/background.png");
     cursor: url("images/cursor.png"), auto;
-
 }
 
 @font-face {
@@ -16,6 +15,7 @@ body {
 
 .container {
     max-width: 800px;
+    min-width: 720px;
     margin: auto;
     font-family: HarryPotter2, Arial, Helvetica, sans-serif;
     background-color: rgba(255,255,255,0.8);
@@ -47,6 +47,19 @@ hr {
     cursor: url("images/btnCursor.png"), auto;
 }
 
+/* error message */
+.error {
+    color: red;
+}
+
+/* drop down styling */
+select {
+    font-size: 15px;
+    font-family: HarryPotter2, Arial, Helvetica, sans-serif;
+    height: 25px;
+    width: 110px;
+}
+
 .dropdowns {
     display: flex;
     justify-content: center;
@@ -75,38 +88,18 @@ hr {
     margin: auto;
 }
 
-.right {
-    text-align: right;
-}
-
-p {
-    font-size: large;
-}
-
 .playerHeading {
     text-align: center;
     text-transform: capitalize;
 }
 
-.hide {
-    display: none;
-}
-
-.error {
-    color: red;
+.noWin {
+    color: black;
 }
 
 .pOneHouseSelection, .pTwoHouseSelection{
     text-transform: capitalize;
     text-decoration: underline;
-}
-
-/* drop down styling */
-select {
-    font-size: 15px;
-    font-family: HarryPotter2, Arial, Helvetica, sans-serif;
-    height: 25px;
-    width: 110px;
 }
 
 /* House Styling */
@@ -152,12 +145,6 @@ table {
 
 }
 
-/* Default square styling */
-.square {
-    background-image: url(images/square.png);
-    border-radius: 10px;
-}
-
 td {
     height: 130px;
     width: 130px;
@@ -172,6 +159,12 @@ img {
     padding: 10px 20px;
     height: 110px;
     width: 90px;
+}
+
+/* default board styling */
+.square {
+    background-image: url(images/square.png);
+    border-radius: 10px;
 }
 
 /* buttons */
@@ -207,14 +200,28 @@ img {
     cursor: url("images/btnCursor.png"), auto;
 }
 
-.center {
-    text-align: center;
-}
-
+/* Footer */
 .footerBtn {
     cursor: url("images/btnCursor.png"), auto;
 }
 
 footer p {
     padding-top: 5px;
+}
+
+ /* generic classes */
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+p {
+    font-size: large;
+}
+
+.hide {
+    display: none;
 }

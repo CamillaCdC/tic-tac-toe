@@ -22,6 +22,7 @@ var winSequences = [
 var counter = 0;
 var resetBtn = document.querySelector(".reset");
 var theme = new Audio("audio/theme.mov");
+var winSound = new Audio("audio/win.mov");
 var error = document.querySelector(".error");
 var pOneDropDown = document.querySelector(".pOneDropDown");
 var pTwoDropDown = document.querySelector(".pTwoDropDown");
@@ -42,6 +43,8 @@ var playerOneHouseImage = function () {
         document.querySelector(".pOneCrest").classList.remove("hide");
 
     }
+    // once player one has made a select undisable the player two box
+    pTwoSelect.disabled = false;
 }
 var playerTwoHouseImage = function () {
     pTwoHouse = pTwoSelect.value;
@@ -53,13 +56,16 @@ var playerTwoHouseImage = function () {
     }
 }
 
-// Start function
+// Start button function
 var start = () => {
+    // if players haven't choen a house
+    if (pOneHouse === undefined || pTwoHouse === undefined) {
+        error.classList.remove("hide");
+        error.textContent = "All players must choose a house.";
     // check that both house names are not the same
-    if (pOneHouse === pTwoHouse) {
+    } else if (pOneHouse === pTwoHouse) {
         error.classList.remove("hide");
         error.textContent = "Players must choose different houses.";
-        error.style.color = "red";
     // If they're not the same, hide drop downs and player scores's appear
     } else {
         // hide crests from selection
@@ -136,16 +142,6 @@ var click = event => {
     } 
 }
 
-// Function to handle when there is no win outcome
-var endNoWin = function (arr1, arr2) {
-    if (playerHeading.textContent != `${pOneHouse} Wins!` && playerHeading.textContent != `${pTwoHouse} Wins!` && arr1.length + arr2.length === 9) {
-        playerHeading.textContent = "No one wins!"
-        // display reset game button
-        resetBtn.style.display = "inline-block";
-        resetBtn.addEventListener("click", resetGame);
-    }
-}
-
 // add event listener to each square within the board
 allSquares.forEach(square => {
     square.addEventListener("click", click);
@@ -182,14 +178,19 @@ var checkWin = player => {
     }
 }
 
+
 // if there is a win. stop game play. highlight winning path. pop up button to reset the game. 
 var win = winSeq => {
+    // play win sound if mute button isn't clicked
+    if (musicBtnClicked === 0) {
+        winSound.play();
+    }
     // remove event listener from the board so no more turns can be played
     allSquares.forEach(square => {
         square.removeEventListener("click", click)
     })
-     // Change heading & score board
-     if (playerHeading.textContent === `${pTwoHouse}'s Turn...`) {
+    // Change heading & score board
+    if (playerHeading.textContent === `${pTwoHouse}'s Turn...`) {
         playerHeading.classList.add(pOneHouse);
         playerHeading.classList.remove(pTwoHouse);
         playerHeading.textContent = `${pOneHouse} Wins!`;
@@ -203,10 +204,9 @@ var win = winSeq => {
         document.querySelector(".pTwoScore").textContent = pTwoWins;
 
     }
-    // change the color of each winning square to gold
+    // change the color of each winning square to house color
     winSeq.forEach(square => {
         if (playerHeading.textContent === `${pOneHouse} Wins!`) {
-            // document.querySelector(`[data-id='${square}']`).classList.remove("square");
             document.querySelector(`[data-id='${square}']`).classList.add(`${pOneHouse}Square`);
         } else {
             document.querySelector(`[data-id='${square}']`).classList.add(`${pTwoHouse}Square`);
@@ -217,13 +217,24 @@ var win = winSeq => {
     resetBtn.addEventListener("click", resetGame);
 }
 
+// Function to handle when there is no win outcome
+var endNoWin = function (arr1, arr2) {
+    if (playerHeading.textContent != `${pOneHouse} Wins!` && playerHeading.textContent != `${pTwoHouse} Wins!` && arr1.length + arr2.length === 9) {
+        playerHeading.classList = "playerHeading noWin";
+        playerHeading.textContent = "No one wins!"
+        // display reset game button
+        resetBtn.style.display = "inline-block";
+        resetBtn.addEventListener("click", resetGame);
+    }
+}
+
 // reset function
 var resetGame = () => {
+    playerHeading.classList.remove("noWin");
     // Clear boxes of text and color
     pOne.forEach(square => {
         document.querySelector(`[data-id='${square}']`).textContent = "";
         document.querySelector(`[data-id='${square}']`).classList.remove(`${pOneHouse}Square`);
-
     })
     pTwo.forEach(square => {
         document.querySelector(`[data-id='${square}']`).textContent = "";
@@ -259,7 +270,7 @@ var resetScore = () => {
     document.querySelector(".pTwoScore").textContent = pTwoWins;
 }
 
-var startNewGame = () => {
+var startNewGameFooterBtn = () => {
     resetScore();
     resetGame();
     board.style.display = "none";
@@ -271,17 +282,21 @@ var startNewGame = () => {
     startBtn.classList.remove("hide");
     pOneHouseSelection.classList = "pOneHouseSelection";
     pTwoHouseSelection.classList = "pTwoHouseSelection";
+    pOneHouse = undefined;
+    pTwoHouse= undefined;
+    pTwoSelect.disabled = "disabled";
 }
 
 // Event listeners for footer
 document.querySelector(".resetScore").addEventListener("click", resetScore);
-document.querySelector(".startNewGame").addEventListener("click", startNewGame);
+document.querySelector(".startNewGame").addEventListener("click", startNewGameFooterBtn);
 
 // Music
 var playTheme = () => {
     musicBtn.src = "images/unmute.png";
     theme.play();
     musicPlaying = true;
+    musicBtnClicked = 0;
     return musicPlaying;
 }
 
