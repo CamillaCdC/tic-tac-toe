@@ -212,6 +212,7 @@ var resetGame = () => {
     resetBtn.style.display = "none";
 }
 
+// FOOTER FUNCTIONS
 // reset score board function
 var resetScore = () => {
     pOneWins = 0;
@@ -221,5 +222,18 @@ var resetScore = () => {
 
 }
 
-// reset score board even listener
+var startNewGame = () => {
+    resetScore();
+    board.style.display = "none";
+    resetBtn.style.display = "none";
+    playerHeading.classList.add("hide");
+    document.querySelector(".select").classList.remove("hide");
+    document.querySelector(".pOneDropDown").classList.remove("hide");
+    document.querySelector(".pTwoDropDown").classList.remove("hide");
+    document.querySelector(".start").classList.remove("hide");
+}
+
+// Event listeners
 document.querySelector(".resetScore").addEventListener("click", resetScore);
+document.querySelector(".resetGameFooter").addEventListener("click", resetGame);
+document.querySelector(".startNewGame").addEventListener("click", startNewGame);
