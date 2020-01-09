@@ -4,22 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tic-Tac-Potter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <header>
+            <h1>Tic-Tac-Potter</h1>
+            <hr>
+        </header>
+
+        <h2>Welcome to Tic-Tac-Potter!</h2>
+        <p>Get three squares in a row to win. Diagonals count. Once the game is over a rest game button will appear, click this to reset the board and start a new game. The loser of the last game will have the first turn of the new game.
+            
+        <p class="select">Select your house to begin!</p>
+
+        <p class="error"></p>
+
+        <p class="pOneDropDown">
+            Player 1 choose your house: 
+            <select name="pOneHouse" class="pOneHouse">
+                <option value="gryffindor">Gryffindor</option>
+                <option value="hufflepuff">Hufflepuff</option>
+                <option value="ravenclaw">Ravenclaw</option>  
+                <option value="slytherin">Slytherin</option>   
+            </select>
+        </p>
         
-        <h1>Tic-Tac-Toe</h1>
-        <p>Welcome to tic-tac-toe! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae corporis, voluptas alias quae adipisci maxime nulla repellendus deserunt officiis, aspernatur explicabo laborum officia quaerat debitis asperiores repudiandae sequi cumque dolorum.</p>
-        <p>Player 1 = X</p>
-        <p>Player 2 = 0</p>
-        <h2 class="playerHeading pOne">Player 1 Turn...</h2>
+        <p class="pTwoDropDown">
+            Player 2 choose your house: 
+            <select name="pTwoHouse" class="pTwoHouse">
+                <option value="gryffindor">Gryffindor</option>
+                <option value="hufflepuff">Hufflepuff</option>
+                <option value="ravenclaw">Ravenclaw</option>  
+                <option value="slytherin">Slytherin</option>   
+            </select>
+        </p>
+
+        <button class="start">Start Game</button>
+
+        <h2 class="noWinner center"></h2>
+        <h2 class="playerHeading hide"></h2>
     
         <section class="board">
+            <div>
+                <p class="pOneHouseSelection">Player 1 Score</p>
+                <p class="pOneScore">0</p>
+            </div>
            <table>
                <tr>
-                   <td class="square" data-id="1"></td>
+                    <td class="square" data-id="1"></td>
                    <td class="square" data-id="2"></td>
                    <td class="square" data-id="3"></td>
                </tr>
@@ -34,9 +68,19 @@
                     <td class="square" data-id="9"></td>
                </tr>
            </table> 
-
+           <div>
+               <p class="pTwoHouseSelection">Player 2 Score</p>
+               <p class="pTwoScore">0</p>
+            </div>
         </section>
-
+            
+            <br>
+        <div class="center">
+            <button class="reset">Reset Game</button>
+        </div>           
+        <footer class="center">
+            <span class="resetScore">Reset Scoreboards</span> | Start New Game
+        </footer>
     </div>
     <script src="app.js"></script>
 </body>
