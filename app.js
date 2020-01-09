@@ -30,6 +30,7 @@ var pOneHouseSelection = document.querySelector(".pOneHouseSelection");
 var pTwoHouseSelection = document.querySelector(".pTwoHouseSelection");
 var musicPlaying = false;
 var musicBtn = document.querySelector(".musicBtn");
+var musicBtnClicked = 0;
 
 // set player house selection and display crests
 var playerOneHouseImage = function () {
@@ -66,7 +67,7 @@ var start = () => {
         document.querySelector(".pTwoCrest").classList.add("hide");
         document.querySelector(".pOneCrestScore").src = `images/${pOneHouse}.png`;
         document.querySelector(".pTwoCrestScore").src = `images/${pTwoHouse}.png`;
-        playTheme();
+        startMusic();
         error.classList.add("hide");
         pOneDropDown.classList.add("hide");
         pOneSelect.value = "placeholder";
@@ -135,6 +136,7 @@ var click = event => {
     } 
 }
 
+// Function to handle when there is no win outcome
 var endNoWin = function (arr1, arr2) {
     if (playerHeading.textContent != `${pOneHouse} Wins!` && playerHeading.textContent != `${pTwoHouse} Wins!` && arr1.length + arr2.length === 9) {
         playerHeading.textContent = "No one wins!"
@@ -271,11 +273,10 @@ var startNewGame = () => {
     pTwoHouseSelection.classList = "pTwoHouseSelection";
 }
 
-// Event listeners
+// Event listeners for footer
 document.querySelector(".resetScore").addEventListener("click", resetScore);
 document.querySelector(".resetGameFooter").addEventListener("click", resetGame);
 document.querySelector(".startNewGame").addEventListener("click", startNewGame);
-
 
 // Music
 var playTheme = () => {
@@ -290,7 +291,16 @@ var pauseTheme = () => {
     theme.pause();
     theme.currentTime = 0;
     musicPlaying = false;
+    musicBtnClicked = 1;
     return musicPlaying;
+}
+
+var startMusic = () => {
+    if (musicBtnClicked === 0) {
+        playTheme();
+    } else {
+        return;
+    }
 }
 
 var musicBtnClick = () => {
