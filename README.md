@@ -3,7 +3,7 @@
 ## Tic-Tac-Potter
 
 This is the game that I have created for Project 1: the Game.
-Access the working game [here.](https://camillacdc.github.io/tic-tac-toe/){:target="_blank"}
+Access the working game [here.](https://camillacdc.github.io/tic-tac-toe/)
 
 ### Challenges
 
