@@ -71,7 +71,7 @@ var changeHeading = () => {
 // function to handle each time the board is clicked 
 var click = event => {
     // check that the box is empty
-    if (event.target.tagName !== "IMG") {
+    if (event.target.tagName != "IMG") {
         // get images
         var pOnePiece = new Image(104, 130);
         pOnePiece.src = `images/${pOneHouse}.png`;
@@ -231,6 +231,7 @@ var startNewGame = () => {
     document.querySelector(".pOneDropDown").classList.remove("hide");
     document.querySelector(".pTwoDropDown").classList.remove("hide");
     document.querySelector(".start").classList.remove("hide");
+    resetGame();
 }
 
 // Event listeners
