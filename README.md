@@ -5,20 +5,20 @@
 This is the game that I have created for Project 1: the Game.
 Access the working game [here.](https://camillacdc.github.io/tic-tac-toe/){:target="_blank"}
 
-###Challenges
+### Challenges
 
 * Figuring out how to determine wins, and making sure win appeared correctly
 * Making sure that player turns alternated and the right image appeared for each player
 * Ensuring that the right elements appeared and disappeared at the right time
 
-###Cool Tech
+### Cool Tech
 
 * Players can select a house to play as, and the house crest is their piece
 * Music plays when the "Start Game" button is clicked as well as a win sound, however if the user chooses to mute the music neither will play again, even if they click "Start New Game"
 * Custom cursors
 * Running score boards, can also be rest
 
-###How Wins Are Checked
+### How Wins Are Checked
 
 Wins are checked by comparing the indexes in the players array versus the winning sequences. The winning sequences are stored as arrays within an array. 
 
@@ -26,7 +26,7 @@ If the players array length is equal to or greater than three a loop is entered 
 
 The win function plays the winning sound if the mute button hasn't been clicked. It then removes the event listener so no more turns can be played. The heading is changed to indicate which player has won and the score board is updated. The winning sequence is highlighted in the house colour. Finally the reset game button appears. 
 
-###Lessons Learned
+### Lessons Learned
 
 I struggled with two crests appearing in the same square. I was unsure how to make ensure that the click function didn't trigger if the square was not empty. After some trail and error I discovered event.target.tagName would allow me to check whether there was an imagine in the square already. 
 
