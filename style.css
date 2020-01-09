@@ -17,18 +17,32 @@ body {
     margin: auto;
     font-family: HarryPotter2, Arial, Helvetica, sans-serif;
     background-color: rgba(255,255,255,0.8);
-    padding: 10px 15px 20px;
+    padding: 10px 15px;
     border-radius: 5px;
+}
+
+header {
+    display: flex;
 }
 
 h1 {
     margin: 5px 0;
     font-family: HarryPotter, Arial, Helvetica, sans-serif;
     font-size: 3em;
+    flex-grow: 1;
 }
 
 hr {
 	border: 1px solid black;
+}
+
+.musicBtn {
+    height: 20px;
+    width: 20px;
+    align-self: center;
+    flex-grow: 0;
+    padding: 5px;
+    cursor: pointer;
 }
 
 p {
@@ -162,4 +176,8 @@ img {
 
 .footerBtn {
     cursor: pointer;
+}
+
+footer p {
+    padding-top: 5px;
 }

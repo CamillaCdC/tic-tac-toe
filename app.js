@@ -19,6 +19,15 @@ var winSequences = [
 ]
 var counter = 0;
 var resetBtn = document.querySelector(".reset");
+var theme = new Audio("audio/theme.mov");
+var error = document.querySelector(".error");
+var pOneDropDown = document.querySelector(".pOneDropDown");
+var pTwoDropDown = document.querySelector(".pTwoDropDown");
+var startBtn = document.querySelector(".start");
+var pOneHouseSelection = document.querySelector(".pOneHouseSelection");
+var pTwoHouseSelection = document.querySelector(".pTwoHouseSelection");
+var musicPlaying = false;
+var musicBtn = document.querySelector(".musicBtn");
 
 // Start function
 var start = () => {
@@ -28,31 +37,33 @@ var start = () => {
     var pTwoSelect = document.querySelector(".pTwoHouse");
     pTwoHouse = pTwoSelect.options[pTwoSelect.selectedIndex].value;
     // check that both house names are not the same
-    if (pOneHouse == pTwoHouse) {
-        document.querySelector(".error").textContent = "Players must choose different houses.";
-        document.querySelector(".error").style.color = "red";
+    if (pOneHouse === pTwoHouse) {
+        error.classList.remove("hide");
+        error.textContent = "Players must choose different houses.";
+        error.style.color = "red";
     // If they're not the same, hide drop downs and player scores's appear
     } else {
-        document.querySelector(".error").classList.add("hide");
-        document.querySelector(".pOneDropDown").classList.add("hide");
-        document.querySelector(".pTwoDropDown").classList.add("hide");
-        document.querySelector(".pOneHouseSelection").textContent = `${pOneHouse}'s Score`;
-        document.querySelector(".pOneHouseSelection").classList.add(pOneHouse);
-        document.querySelector(".pTwoHouseSelection").textContent = `${pTwoHouse}'s Score`;
-        document.querySelector(".pTwoHouseSelection").classList.add(pTwoHouse);
+        playTheme();
+        error.classList.add("hide");
+        pOneDropDown.classList.add("hide");
+        pTwoDropDown.classList.add("hide");
+        pOneHouseSelection.textContent = `${pOneHouse}'s Score`;
+        pOneHouseSelection.classList.add(pOneHouse);
+        pTwoHouseSelection.textContent = `${pTwoHouse}'s Score`;
+        pTwoHouseSelection.classList.add(pTwoHouse);
         // display heading and board
         playerHeading.classList.remove("hide");
         playerHeading.classList.add(pOneHouse);
         playerHeading.textContent = `${pOneHouse}'s Turn...`;
         board.style.display = "grid";
         // hide start game button
-        document.querySelector(".start").classList.add("hide");
+        startBtn.classList.add("hide");
         document.querySelector(".select").classList.add("hide");
     }
 }
 
 // Start game button event listener
-document.querySelector(".start").addEventListener("click", start);
+startBtn.addEventListener("click", start);
 
 // Change heading code
 var changeHeading = () => {
@@ -219,22 +230,51 @@ var resetScore = () => {
     pTwoWins = 0;
     document.querySelector(".pOneScore").textContent = pOneWins;
     document.querySelector(".pTwoScore").textContent = pTwoWins;
-
 }
 
 var startNewGame = () => {
     resetScore();
+    resetGame();
     board.style.display = "none";
     resetBtn.style.display = "none";
-    playerHeading.classList.add("hide");
+    playerHeading.classList = "playerHeading hide";
     document.querySelector(".select").classList.remove("hide");
-    document.querySelector(".pOneDropDown").classList.remove("hide");
-    document.querySelector(".pTwoDropDown").classList.remove("hide");
-    document.querySelector(".start").classList.remove("hide");
-    resetGame();
+    pOneDropDown.classList.remove("hide");
+    pTwoDropDown.classList.remove("hide");
+    startBtn.classList.remove("hide");
+    pOneHouseSelection.classList = "pOneHouseSelection";
+    pTwoHouseSelection.classList = "pTwoHouseSelection";
 }
 
 // Event listeners
 document.querySelector(".resetScore").addEventListener("click", resetScore);
 document.querySelector(".resetGameFooter").addEventListener("click", resetGame);
 document.querySelector(".startNewGame").addEventListener("click", startNewGame);
+
+
+// Music
+var playTheme = () => {
+    musicBtn.src = "images/unmute.png";
+    theme.play();
+    musicPlaying = true;
+    return musicPlaying;
+}
+
+var pauseTheme = () => {
+    musicBtn.src = "images/mute.png";
+    theme.pause();
+    theme.currentTime = 0;
+    musicPlaying = false;
+    return musicPlaying;
+}
+
+var musicBtnClick = () => {
+    if (musicPlaying === true) {
+        pauseTheme();
+    } else {
+        playTheme();
+    }
+    return musicPlaying;
+}
+
+musicBtn.addEventListener("click", musicBtnClick);
