@@ -79,6 +79,9 @@ var start = () => {
         document.querySelector(".pTwoCrest").classList.add("hide");
         document.querySelector(".pOneCrestScore").src = `images/${pOneHouse}.png`;
         document.querySelector(".pTwoCrestScore").src = `images/${pTwoHouse}.png`;
+        // hide cup
+        document.querySelector(".pOneHouseWin").classList = "pOneHouseWin cup hide";
+        document.querySelector(".pTwoHouseWin").classList = "pTwoHouseWin cup hide";
         // playe music
         startMusic();
         // hide errors and drop downs
@@ -101,6 +104,10 @@ var start = () => {
         board.style.display = "grid";
         // hide start game button
         startBtn.classList.add("hide");
+        pOneWins = 0;
+        pTwoWins = 0;
+        document.querySelector(".pOneScore").textContent = pOneWins;
+        document.querySelector(".pTwoScore").textContent = pTwoWins;
     }
 }
 
@@ -290,10 +297,14 @@ var resetGame = () => {
 // FOOTER FUNCTIONS
 // reset score board function
 var resetScore = () => {
-    pOneWins = 0;
-    pTwoWins = 0;
-    document.querySelector(".pOneScore").textContent = pOneWins;
-    document.querySelector(".pTwoScore").textContent = pTwoWins;
+    if (playerHeading.textContent === `${pOneHouse} Wins The House Cup!` || playerHeading.textContent === `${pTwoHouse} Wins The House Cup!`) {
+        return;
+    } else {
+        pOneWins = 0;
+        pTwoWins = 0;
+        document.querySelector(".pOneScore").textContent = pOneWins;
+        document.querySelector(".pTwoScore").textContent = pTwoWins;
+    }
 }
 
 var startNewGameFooterBtn = () => {
@@ -309,7 +320,7 @@ var startNewGameFooterBtn = () => {
     pOneHouseSelection.classList = "pOneHouseSelection";
     pTwoHouseSelection.classList = "pTwoHouseSelection";
     pOneHouse = undefined;
-    pTwoHouse= undefined;
+    pTwoHouse = undefined;
     pTwoSelect.disabled = "disabled";
     document.querySelector(".noWinsForHouseCup").value = null;
     document.querySelector(".houseCupWins").classList.remove("hide");
