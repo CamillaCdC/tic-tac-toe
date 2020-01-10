@@ -22,6 +22,7 @@ Tic Tac Potter is a twist on the usual tic tac toe. Each player must select a Ha
 * Running score boards, can also be rest
 * Player 2 dropdown box is disabled until Player 1 chooses their house
 * Page is responsive in a rudimentary way
+* Custom fonts
 
 ### How Wins Are Checked
 

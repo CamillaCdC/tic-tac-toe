@@ -29,6 +29,7 @@ var pOneHouseSelection = document.querySelector(".pOneHouseSelection");
 var pTwoHouseSelection = document.querySelector(".pTwoHouseSelection");
 var theme = new Audio("audio/theme.mov");
 var winSound = new Audio("audio/win.mov");
+winSound.volume = 0.3;
 var musicPlaying = false;
 var musicBtn = document.querySelector(".musicBtn");
 var musicBtnClicked = 0;
@@ -126,13 +127,13 @@ var click = event => {
         // player 1 turn
         if (playerHeading.textContent === `${pOneHouse}'s Turn...`) {
             event.target.append(pOnePiece);
-            // push data-id of square into players array, covert to number, sort from largest to smallest then call check win function
+            // push data-id of square into players array, covert to number
             pOne.push(Number(event.target.dataset.id));
             changeHeading();
         } else {
             // player 2 turn
             event.target.append(pTwoPiece);
-            // push data-id of square into players array, covert to number, sort from largest to smallest then call check win function
+            // push data-id of square into players array, covert to number
             pTwo.push(Number(event.target.dataset.id));
             changeHeading();
         }
@@ -175,12 +176,8 @@ var checkWin = player => {
             // reset counter back to 0 before looking at next sequence 
             counter = 0;
         })
-    // if player array doesn't have more than 3 do nothing
-    } else {
-        return;
     }
 }
-
 
 // if there is a win. stop game play. highlight winning path. pop up button to reset the game. 
 var win = winSeq => {
@@ -189,9 +186,7 @@ var win = winSeq => {
         winSound.play();
     }
     // remove event listener from the board so no more turns can be played
-    allSquares.forEach(square => {
-        square.removeEventListener("click", click)
-    })
+    allSquares.forEach(square => { square.removeEventListener("click", click) })
     // Change heading & score board
     if (playerHeading.textContent === `${pTwoHouse}'s Turn...`) {
         playerHeading.classList.add(pOneHouse);
@@ -205,13 +200,12 @@ var win = winSeq => {
         playerHeading.textContent = `${pTwoHouse} Wins!`;
         pTwoWins ++;
         document.querySelector(".pTwoScore").textContent = pTwoWins;
-
     }
     // change the color of each winning square to house color
     winSeq.forEach(square => {
         if (playerHeading.textContent === `${pOneHouse} Wins!`) {
             document.querySelector(`[data-id='${square}']`).classList.add(`${pOneHouse}Square`);
-        } else {
+        } else if (playerHeading.textContent === `${pTwoHouse} Wins!`) {
             document.querySelector(`[data-id='${square}']`).classList.add(`${pTwoHouse}Square`);
         }
     })
