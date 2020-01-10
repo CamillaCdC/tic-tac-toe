@@ -16,6 +16,7 @@
         <hr>
 
         <h2>Welcome to Tic-Tac-Potter!</h2>
+        <p>Each player chooses a house to play as. Each player must choose different houses. Then select the number of games you would like to play to win the House Cup. Once the House Cup is won the game is over.</p>
         <p>To win get three squares in a row, remember diagonals count. Once the game is over a reset game button will appear, click this to play again! The loser of the last game will have the first turn of the next game. To start a new game, click Start New Game at the bottom of the page.</p>
             
         <div class="select">
@@ -49,12 +50,20 @@
                 </select>
             </span>
         </p>
-            
+
+        
         <div class="crests">
             <img src="" alt="PlayerOneCrest" class="pOneCrest hide">
             <img src="" alt="PlayerTwoCrest" class="pTwoCrest hide">
         </div>
-       
+        
+        <div class="houseCupWins center">
+            <p>
+                Number of wins for the House Cup: 
+                <input type="number" class="noWinsForHouseCup">
+            </p>
+        </div>
+
         <div class="center">
             <button class="start">Start Game</button>
         </div>
@@ -67,6 +76,7 @@
                 <img src="" alt="PlayerOneCrest" class="pOneCrestScore">
                 <p class="pOneHouseSelection">Player 1 Score</p>
                 <p class="pOneScore">0</p>
+                <img src="images/cup.png" alt="HouseCup" class="pOneHouseWin cup hide">
             </div>
            <table>
                <tr>
@@ -89,7 +99,8 @@
                <img src="" alt="PlayerTwoCrest" class="pTwoCrestScore">
                <p class="pTwoHouseSelection">Player 2 Score</p>
                <p class="pTwoScore">0</p>
-            </div>
+               <img src="images/cup.png" alt="HouseCup" class="pTwoHouseWin cup hide">
+            </div >
         </section>
             
         <br>

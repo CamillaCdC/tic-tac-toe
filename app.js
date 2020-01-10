@@ -33,6 +33,7 @@ winSound.volume = 0.3;
 var musicPlaying = false;
 var musicBtn = document.querySelector(".musicBtn");
 var musicBtnClicked = 0;
+var noToWinCup; 
 
 // set player house selection and display crests
 var playerOneHouseImage = function () {
@@ -67,8 +68,12 @@ var start = () => {
     } else if (pOneHouse === pTwoHouse) {
         error.classList.remove("hide");
         error.textContent = "Players must choose different houses.";
+    } else if (document.querySelector(".noWinsForHouseCup").value === "") {
+        error.classList.remove("hide");
+        error.textContent = "Please enter in the numbers of wins for the House Cup."
     // If they're not the same, hide drop downs and player scores's appear
     } else {
+        noToWinCup = document.querySelector(".noWinsForHouseCup").value;
         // hide crests from selection
         document.querySelector(".pOneCrest").classList.add("hide");
         document.querySelector(".pTwoCrest").classList.add("hide");
@@ -83,6 +88,7 @@ var start = () => {
         pTwoDropDown.classList.add("hide");
         pTwoSelect.value = "placeholder";
         document.querySelector(".select").classList.add("hide");
+        document.querySelector(".houseCupWins").classList.add("hide");
         // display score boards
         pOneHouseSelection.textContent = `${pOneHouse}'s Score`;
         pOneHouseSelection.classList.add(pOneHouse);
@@ -212,6 +218,24 @@ var win = winSeq => {
     // display reset game button
     resetBtn.style.display = "inline-block";
     resetBtn.addEventListener("click", resetGame);
+    winCup();
+}
+
+var winCup = function () {
+    noToWinCup = Number(noToWinCup);
+    if (pOneWins === noToWinCup) {
+        playerHeading.classList.add(pOneHouse);
+        playerHeading.classList.remove(pTwoHouse);
+        playerHeading.textContent = `${pOneHouse} Wins The House Cup!`;
+        resetBtn.style.display = "none";
+        document.querySelector(".pOneHouseWin").classList.remove("hide");
+    } else if (pTwoWins === noToWinCup) {
+        playerHeading.classList.add(pTwoHouse);
+        playerHeading.classList.remove(pOneHouse);
+        playerHeading.textContent = `${pTwoHouse} Wins The House Cup!`;
+        resetBtn.style.display = "none";
+        document.querySelector(".pOneHouseWin").classList.remove("hide");
+    }
 }
 
 // Function to handle when there is no win outcome
@@ -286,6 +310,8 @@ var startNewGameFooterBtn = () => {
     pOneHouse = undefined;
     pTwoHouse= undefined;
     pTwoSelect.disabled = "disabled";
+    document.querySelector(".noWinsForHouseCup").value = null;
+    document.querySelector(".houseCupWins").classList.remove("hide");
 }
 
 // Event listeners for footer

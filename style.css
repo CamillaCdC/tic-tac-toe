@@ -56,6 +56,14 @@ hr {
     color: red;
 }
 
+/* house cup styling */
+input {
+    font-size: 15px;
+    font-family: HarryPotter2, Arial, Helvetica, sans-serif;
+    width: 35px;
+}
+
+
 /* drop down styling */
 select {
     font-size: 15px;
@@ -90,6 +98,13 @@ select {
 
 .pOneCrestScore, .pTwoCrestScore {
     margin: auto;
+}
+
+.cup {
+    height: 196px;
+    width: 90px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .playerHeading {

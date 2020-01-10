@@ -19,7 +19,7 @@ Tic Tac Potter is a twist on the usual tic tac toe. Each player must select a Ha
 * Players can select a house to play as, and the house crest is their piece
 * Music plays when the "Start Game" button is clicked as well as a win sound, however if the user chooses to mute the music neither will play again, even if they click "Start New Game"
 * Custom cursors
-* Running score boards, can also be rest
+* Running score boards, can also be reset
 * Player 2 dropdown box is disabled until Player 1 chooses their house
 * Page is responsive in a rudimentary way
 * Custom fonts
