@@ -260,9 +260,13 @@ footer p {
     p {
         font-size: small;
     }
+    .cup {
+        height: 93px;
+        width: 35px;
+    }
 }
 
-
+/* half */
 @media all and (min-width: 420px) {
     td {
         height: 65px;
@@ -279,8 +283,12 @@ footer p {
     p {
         font-size: medium;
     }
+    .cup {
+        height: 98px;
+        width: 40px;
+    }
 } 
-
+/* 0.8 */
 @media all and (min-width: 580px) {
     td {
         height: 104px;
@@ -296,6 +304,10 @@ footer p {
     }
     p {
         font-size: large;
+    }
+    .cup {
+        height: 156.8px;
+        width: 72px;
     }
 } 
 
@@ -315,6 +327,8 @@ footer p {
     p {
         font-size: large;
     }
+    .cup {
+        height: 196px;
+        width: 90px; 
+    }
 }
-
-
