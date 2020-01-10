@@ -43,8 +43,8 @@ hr {
 }
 
 .musicBtn {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     align-self: center;
     flex-grow: 0;
     padding: 5px;
