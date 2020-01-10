@@ -12,6 +12,7 @@ Tic Tac Potter is a twist on the usual tic tac toe. Each player must select a Ha
 * Figuring out how to determine wins, and making sure win appeared correctly
 * Making sure that player turns alternated and the right image appeared for each player
 * Ensuring that the right elements appeared and disappeared at the right time
+* Making the page responsive
 
 ### Cool Tech
 
@@ -20,6 +21,7 @@ Tic Tac Potter is a twist on the usual tic tac toe. Each player must select a Ha
 * Custom cursors
 * Running score boards, can also be rest
 * Player 2 dropdown box is disabled until Player 1 chooses their house
+* Page is responsive in a rudimentary way
 
 ### How Wins Are Checked
 
