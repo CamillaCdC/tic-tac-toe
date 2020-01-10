@@ -221,6 +221,7 @@ var win = winSeq => {
     winCup();
 }
 
+// house cup winning function 
 var winCup = function () {
     noToWinCup = Number(noToWinCup);
     if (pOneWins === noToWinCup) {
@@ -234,7 +235,7 @@ var winCup = function () {
         playerHeading.classList.remove(pOneHouse);
         playerHeading.textContent = `${pTwoHouse} Wins The House Cup!`;
         resetBtn.style.display = "none";
-        document.querySelector(".pOneHouseWin").classList.remove("hide");
+        document.querySelector(".pTwoHouseWin").classList.remove("hide");
     }
 }
 
