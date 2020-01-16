@@ -18,56 +18,58 @@
         <h2>Welcome to Tic-Tac-Potter!</h2>
         <p>Each player chooses a house to play as. Each player must choose different houses. Then select the number of rounds you would like to play to win the House Cup. Once the House Cup is won the game is over.</p>
         <p>To win get three squares in a row, remember diagonals count. Once the round is over a reset game button will appear, click this to play the next round! The loser of the last round will have the first turn of the next round. To start a new game, click Start New Game at the bottom of the page.</p>
-            
-        <div class="select">
-            <p>Select your house to begin!</p>
-        </div>
+         
+        <div class="gameStart">
+            <div class="select">
+                <p>Select your house to begin!</p>
+            </div>
 
-        <div class="error">
-            <p></p>
-        </div>
+            <div class="error">
+                <p></p>
+            </div>
 
-        <p class="dropdowns">
-            <span class="pOneDropDown">
-                Player 1 choose your house: 
-                <select name="pOneHouse" class="pOneHouse" onchange="playerOneHouseImage()">
-                    <option value="placeholder">Select House</option>
-                    <option value="gryffindor">Gryffindor</option>
-                    <option value="hufflepuff">Hufflepuff</option>
-                    <option value="ravenclaw">Ravenclaw</option>  
-                    <option value="slytherin">Slytherin</option>   
-                </select>
-            </span>
-            
-            <span class="pTwoDropDown">
-                Player 2 choose your house: 
-                <select name="pTwoHouse" class="pTwoHouse" onchange="playerTwoHouseImage()" disabled=true>
-                    <option value="placeholder">Select House</option>
-                    <option value="gryffindor">Gryffindor</option>
-                    <option value="hufflepuff">Hufflepuff</option>
-                    <option value="ravenclaw">Ravenclaw</option>  
-                    <option value="slytherin">Slytherin</option>   
-                </select>
-            </span>
-        </p>
-
-        
-        <div class="crests">
-            <img src="" alt="PlayerOneCrest" class="pOneCrest hide">
-            <img src="" alt="PlayerTwoCrest" class="pTwoCrest hide">
-        </div>
-        
-        <div class="houseCupWins center">
-            <p>
-                Number of wins for the House Cup: 
-                <input type="number" class="noWinsForHouseCup">
+            <p class="dropdowns">
+                <span class="pOneDropDown">
+                    Player 1 choose your house: 
+                    <select name="pOneHouse" class="pOneHouse" onchange="playerOneHouseImage()">
+                        <option value="placeholder">Select House</option>
+                        <option value="gryffindor">Gryffindor</option>
+                        <option value="hufflepuff">Hufflepuff</option>
+                        <option value="ravenclaw">Ravenclaw</option>  
+                        <option value="slytherin">Slytherin</option>   
+                    </select>
+                </span>
+                
+                <span class="pTwoDropDown">
+                    Player 2 choose your house: 
+                    <select name="pTwoHouse" class="pTwoHouse" onchange="playerTwoHouseImage()" disabled=true>
+                        <option value="placeholder">Select House</option>
+                        <option value="gryffindor">Gryffindor</option>
+                        <option value="hufflepuff">Hufflepuff</option>
+                        <option value="ravenclaw">Ravenclaw</option>  
+                        <option value="slytherin">Slytherin</option>   
+                    </select>
+                </span>
             </p>
+            
+            <div class="crests">
+                <img src="" alt="PlayerOneCrest" class="pOneCrest hide">
+                <img src="" alt="PlayerTwoCrest" class="pTwoCrest hide">
+            </div>
+            
+            <div class="houseCupWins center">
+                <p>
+                    Number of wins for the House Cup: 
+                    <input type="number" class="noWinsForHouseCup">
+                </p>
+            </div>
+        
+            
+            <div class="center">
+                <button class="start">Start Game</button>
+            </div>
         </div>
-
-        <div class="center">
-            <button class="start">Start Game</button>
-        </div>
-
+            
         <h2 class="noWinner hide">No One Wins!</h2>
         <h2 class="playerHeading hide"></h2>
     
